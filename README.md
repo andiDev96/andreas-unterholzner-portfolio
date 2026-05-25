@@ -30,58 +30,52 @@
 - Node.js 22 LTS (see [`.nvmrc`](./.nvmrc))
 - pnpm 9+
 
-\\\ bash
-
+```bash
 # Install dependencies
-
 pnpm install
 
 # Start dev server → http://localhost:5173
-
 pnpm dev
 
 # Production build
-
 pnpm build
 
 # Preview production build
-
 pnpm preview
 
 # Lint, format, typecheck
-
 pnpm lint
 pnpm format
 pnpm typecheck
-\`\`\`
+```
 
 ## 📁 Project Structure
 
-\`\`\`
+```
 .
-├── public/ # Static assets
+├── public/                  # Static assets
 ├── src/
-│ ├── App.tsx # Root component
-│ ├── main.tsx # Entry point
-│ └── index.css # Tailwind + global tokens
-├── index.html # HTML entry
-├── vite.config.ts # Vite configuration
-├── eslint.config.js # ESLint flat config
-├── commitlint.config.js # Conventional Commits rules
-├── .prettierrc.json # Prettier rules
-├── .editorconfig # Editor consistency
-└── .nvmrc # Node version pin
-\`\`\`
+│   ├── App.tsx              # Root component
+│   ├── main.tsx             # Entry point
+│   └── index.css            # Tailwind + global tokens
+├── index.html               # HTML entry
+├── vite.config.ts           # Vite configuration
+├── eslint.config.js         # ESLint flat config
+├── commitlint.config.js     # Conventional Commits rules
+├── .prettierrc.json         # Prettier rules
+├── .editorconfig            # Editor consistency
+└── .nvmrc                   # Node version pin
+```
 
 ## 🔀 Git Workflow
 
 This project follows a simplified **Git Flow** model:
 
-| Branch          | Purpose                                                                   |
-| --------------- | ------------------------------------------------------------------------- |
-| \`main\`        | Production — always deployable, auto-deploys to Vercel                    |
-| \`develop\`     | Integration — active work converges here                                  |
-| \`feat/<name>\` | Feature branches — created from \`develop\`, merged back via Pull Request |
+| Branch        | Purpose                                                                 |
+| ------------- | ----------------------------------------------------------------------- |
+| `main`        | Production — always deployable, auto-deploys to Vercel                  |
+| `develop`     | Integration — active work converges here                                |
+| `feat/<name>` | Feature branches — created from `develop`, merged back via Pull Request |
 
 All commits follow the [Conventional Commits](https://www.conventionalcommits.org/) specification, **enforced automatically** at commit time via Husky + commitlint. Code is auto-formatted with Prettier and linted with ESLint on every commit via lint-staged.
 
