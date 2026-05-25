@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette  */
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #111111;
+  --color-charcoal: #1a1a1a;
+  --color-paper: #fafafa;
+  --color-paper-soft-: #e5e5e5;
+  --color-mutend: #737373;
+
+  /* Accenti */
+  --color-eletric: #0066ff;
+  --color-cyan: #00d4ff;
+  --color-purple: #8b5cf6;
+  
+  /* Tipografia (placeholde) */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+
+/* — Reset minimale — */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
