@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { ACESFilmicToneMapping } from "three";
 import { LiquidBlob } from "./LiquidBlob";
 import { Particles } from "./Particles";
+import { CameraRig } from "./CameraRig";
 
 export function Scene() {
   return (
@@ -16,6 +17,7 @@ export function Scene() {
       }}
       style={{ background: "transparent" }}
     >
+      <CameraRig />
       {/* Ambient Light --soft fill */}
       <ambientLight intensity={0.4} />
 
