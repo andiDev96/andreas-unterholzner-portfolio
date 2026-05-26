@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { ACESFilmicToneMapping } from "three";
-import { TestMesh } from "./TestMesh";
+import { LiquidBlob } from "./LiquidBlob";
 
 export function Scene() {
   return (
@@ -22,10 +22,10 @@ export function Scene() {
       <directionalLight position={[5, 5, 5]} intensity={1.2} color="#e0f0ff" />
 
       {/* Point Light rim accent, elettric blue glow */}
-      <pointLight position={[-4, 2, 3]} intensity={1.5} color="#0066ff" />
+      <pointLight position={[-4, 2, 3]} intensity={3} color="#0066ff" distance={20} decay={1.5} />
 
       {/* Temporany mesh -- will be replaced with shader-driven geomentry */}
-      <TestMesh />
+      <LiquidBlob />
     </Canvas>
   );
 }
