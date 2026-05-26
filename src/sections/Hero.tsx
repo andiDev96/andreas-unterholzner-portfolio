@@ -1,5 +1,7 @@
 import { Scene } from "@/components/three/Scene";
 import { HeroText } from "@/components/shared/HeroText";
+import { MagneticButton } from "@/components/ui/MagneticButton";
+import { motion } from "framer-motion";
 
 export function Hero() {
   return (
@@ -73,6 +75,20 @@ export function Hero() {
         >
           Crafting immersive digital experiences with React, Three.js and WebGL.
         </HeroText>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2.4, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-12"
+        >
+          <MagneticButton href="#work">
+            Discover work
+            <span className="inline-block transition-transform duration-base group-hover:translate-x-1">
+              →
+            </span>
+          </MagneticButton>
+        </motion.div>
       </div>
     </section>
   );
