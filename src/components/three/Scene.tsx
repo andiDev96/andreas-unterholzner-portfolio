@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { ACESFilmicToneMapping } from "three";
 import { LiquidBlob } from "./LiquidBlob";
+import { Particles } from "./Particles";
 
 export function Scene() {
   return (
@@ -25,6 +26,7 @@ export function Scene() {
       <pointLight position={[-4, 2, 3]} intensity={3} color="#0066ff" distance={20} decay={1.5} />
 
       {/* Temporany mesh -- will be replaced with shader-driven geomentry */}
+      <Particles />
       <LiquidBlob />
     </Canvas>
   );
