@@ -181,3 +181,17 @@ body {
   background: var(--color-electric);
   color: var(--color-paper-strong);
 }
+
+/* Custom Cursor */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [data-cursor] {
+    cursor: none;
+  }
+}
