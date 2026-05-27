@@ -1,6 +1,7 @@
 import { CustomCursor } from "@/components/shared/CustomCursor";
 import { useLenis } from "@/hooks/useLenis";
 import { Hero } from "@/sections/Hero";
+import { About } from "@/sections/About";
 
 function App() {
   useLenis();
@@ -10,6 +11,7 @@ function App() {
       <CustomCursor />
       <main>
         <Hero />
+        <About />
       </main>
     </>
   );
