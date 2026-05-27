@@ -42,7 +42,7 @@ export function Hero() {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 sm:bottom-12">
           <p className="flex flex-col items-center gap-2 font-mono text-caption uppercase text-muted-strong">
             Scroll
-            <span className="inline-block h-8 w-px bg-gradient-to-b from-electric to-transparent"></span>
+            <span className="inline-block h-8 w-px bg-linear-to-b from-electric to-transparent"></span>
           </p>
         </div>
       </div>
