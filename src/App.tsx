@@ -1,11 +1,19 @@
+import { CustomCursor } from "@/components/shared/CustomCursor";
+import { useLenis } from "@/hooks/useLenis";
+import { Hero } from "@/sections/Hero";
+import { About } from "@/sections/About";
+
 function App() {
+  useLenis();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-2 px-6 text-center">
-      <h1 className="text-4xl font-semibold tracking-tight text-paper sm:text-5xl">
-        Andreas Unterholzner
-      </h1>
-      <p className="text-sm text-muted sm:text-base">Frontend Developer &amp; Creative Engineer</p>
-    </main>
+    <>
+      <CustomCursor />
+      <main>
+        <Hero />
+        <About />
+      </main>
+    </>
   );
 }
 
