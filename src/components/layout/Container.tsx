@@ -1,4 +1,4 @@
-import { type ReactNode, type ElementType } from "react";
+import { type ReactNode, type ElementType, createElement } from "react";
 import { cn } from "@/lib/utils";
 
 type ContainerSize = "sm" | "md" | "lg" | "xl" | "full";
@@ -18,15 +18,12 @@ const sizeMap: Record<ContainerSize, string> = {
   full: "max-w-none",
 };
 
-export function Container({
-  children,
-  className,
-  as: Component = "div",
-  size = "lg",
-}: ContainerProps) {
-  return (
-    <Component className={cn("mx-auto w-full px-6 sm:px-8 lg:px-12", sizeMap[size], className)}>
-      {children}
-    </Component>
+export function Container({ children, className, as = "div", size = "lg" }: ContainerProps) {
+  return createElement(
+    as,
+    {
+      className: cn("mx-auto w-full px-6 sm:px-8 lg:px-12", sizeMap[size], className),
+    },
+    children,
   );
 }

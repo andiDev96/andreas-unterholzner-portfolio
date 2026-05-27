@@ -1,4 +1,4 @@
-import { type ReactNode, type ElementType } from "react";
+import { type ReactNode, type ElementType, createElement } from "react";
 import { cn } from "@/lib/utils";
 
 type StackGap = 1 | 2 | 3 | 4 | 6 | 8 | 12 | 16 | 24;
@@ -44,24 +44,24 @@ const justifyMap: Record<StackJustify, string> = {
 export function Stack({
   children,
   className,
-  as: Component = "div",
+  as = "div",
   gap = 4,
   align = "stretch",
   justify = "start",
   direction = "column",
 }: StackProps) {
-  return (
-    <Component
-      className={cn(
+  return createElement(
+    as,
+    {
+      className: cn(
         "flex",
         direction === "column" ? "flex-col" : "flex-row",
         gapMap[gap],
         alignMap[align],
         justifyMap[justify],
         className,
-      )}
-    >
-      {children}
-    </Component>
+      ),
+    },
+    children,
   );
 }
