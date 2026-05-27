@@ -47,7 +47,7 @@ export function CustomCursor() {
       {/* Inner dot — follows mouse precisely */}
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[100]"
+        className="pointer-events-none fixed left-0 top-0 z-100"
         style={{ x: cursorX, y: cursorY }}
         animate={{ opacity: isVisible ? 1 : 0 }}
         transition={{ duration: 0.2 }}
@@ -58,7 +58,7 @@ export function CustomCursor() {
       {/* Outer ring — follows with spring lag, scales on hover */}
       <motion.div
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[100]"
+        className="pointer-events-none fixed left-0 top-0 z-100"
         style={{ x: ringX, y: ringY }}
         animate={{ opacity: isVisible ? 1 : 0 }}
         transition={{ duration: 0.2 }}
