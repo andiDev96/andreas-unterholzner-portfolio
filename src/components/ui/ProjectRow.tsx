@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/lib/projects";
 
@@ -29,10 +29,7 @@ export function ProjectRow({ project, isActive, isDimmed, onHover }: ProjectRowP
     >
       <div className="flex items-baseline justify-between gap-6">
         <div className="flex items-baseline gap-6">
-          {/* Index */}
           <span className="font-mono text-caption text-muted">{project.index}</span>
-
-          {/* Title — slides right on hover */}
           <motion.h3
             animate={{ x: isActive ? 24 : 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -45,7 +42,6 @@ export function ProjectRow({ project, isActive, isDimmed, onHover }: ProjectRowP
           </motion.h3>
         </div>
 
-        {/* Meta — category + year */}
         <div className="hidden flex-col items-end gap-1 text-right sm:flex">
           <span className="font-mono text-caption uppercase tracking-widest text-muted-strong">
             {project.category}
@@ -53,6 +49,33 @@ export function ProjectRow({ project, isActive, isDimmed, onHover }: ProjectRowP
           <span className="font-mono text-caption text-muted">{project.year}</span>
         </div>
       </div>
+
+      {/* Expandable description on hover */}
+      <AnimatePresence>
+        {isActive && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="ml-[3.5rem] mt-6 max-w-2xl">
+              <p className="text-base text-muted-strong">{project.description}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-charcoal-2 bg-ink-3 px-3 py-1 font-mono text-caption text-muted-strong"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </a>
   );
 }

@@ -49,6 +49,20 @@ export function Work() {
             />
           ))}
         </div>
+        {/* Section footer */}
+        <div className="mt-24 flex justify-end border-t border-charcoal-2 pt-8">
+          <a
+            href="#contact"
+            data-cursor="hover"
+            className="group inline-flex items-center gap-3 font-mono text-caption uppercase tracking-widest text-muted transition-colors duration-base hover:text-paper-strong"
+          >
+            <span className="inline-block h-px w-12 bg-current transition-all duration-base group-hover:w-16" />
+            Have a project in mind? Get in touch
+            <span className="inline-block transition-transform duration-base group-hover:translate-x-1">
+              →
+            </span>
+          </a>
+        </div>
       </Container>
 
       {/* Floating preview — follows cursor */}
