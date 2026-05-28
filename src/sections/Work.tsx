@@ -1,12 +1,19 @@
+import { useState } from "react";
 import { Container, Section, Stack } from "@/components/layout";
+import { ProjectRow } from "@/components/ui/ProjectRow";
+import { ProjectPreview } from "@/components/ui/ProjectPreview";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { PROJECTS } from "@/lib/projects";
 
 export function Work() {
+  const [activeId, setActiveId] = useState<string | null>(null);
+
   const headerRef = useScrollReveal<HTMLDivElement>({
     childSelector: "[data-reveal]",
     stagger: 0.12,
   });
+
+  const activeProject = PROJECTS.find((p) => p.id === activeId) ?? null;
 
   return (
     <Section id="work" spacing="loose" size="lg" className="bg-ink">
@@ -21,7 +28,6 @@ export function Work() {
               <span className="inline-block h-px w-12 bg-electric"></span>
               <span>02 — Selected Work</span>
             </div>
-
             <h2
               data-reveal
               className="max-w-4xl text-display font-semibold tracking-tight text-paper-strong"
@@ -31,18 +37,22 @@ export function Work() {
           </Stack>
         </div>
 
-        {/* Project list — placeholder, real cards in next step */}
+        {/* Project list */}
         <div className="mt-24 border-t border-charcoal-2">
           {PROJECTS.map((project) => (
-            <div
+            <ProjectRow
               key={project.id}
-              className="border-b border-charcoal-2 py-8 font-mono text-sm text-muted-strong"
-            >
-              {project.index} — {project.title} · {project.category}
-            </div>
+              project={project}
+              isActive={activeId === project.id}
+              isDimmed={activeId !== null && activeId !== project.id}
+              onHover={setActiveId}
+            />
           ))}
         </div>
       </Container>
+
+      {/* Floating preview — follows cursor */}
+      <ProjectPreview project={activeProject} />
     </Section>
   );
 }
