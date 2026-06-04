@@ -1,9 +1,11 @@
+import { useTranslation } from "@/i18n/useTranslation";
 import { Scene } from "@/components/three/Scene";
 import { HeroText } from "@/components/shared/HeroText";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { motion } from "framer-motion";
 
 export function Hero() {
+  const { t } = useTranslation();
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden bg-ink">
       {/* Background atmosphere */}
@@ -29,13 +31,13 @@ export function Hero() {
         <div className="absolute left-8 top-8 sm:left-12 sm:top-12">
           <p className="flex items-center gap-2 font-mono text-caption uppercase text-muted-strong">
             <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-electric"></span>
-            Portfolio · v0.2
+            {t("hero.statusBadge")}
           </p>
         </div>
 
         {/* Top-right: location */}
         <div className="absolute right-8 top-8 sm:right-12 sm:top-12">
-          <p className="font-mono text-caption uppercase text-muted-strong">Bolzano — IT</p>
+          <p className="font-mono text-caption uppercase text-muted-strong">{t("hero.location")}</p>
         </div>
 
         {/* Bottom: scroll hint */}
@@ -55,7 +57,7 @@ export function Hero() {
           stagger={0.04}
           delay={0.9}
         >
-          Frontend Developer & Creative Engineer
+          {t("hero.eyebrow")}
         </HeroText>
 
         <HeroText
@@ -64,7 +66,7 @@ export function Hero() {
           stagger={0.05}
           delay={0.9}
         >
-          Andreas Unterholzner
+          {t("hero.title")}
         </HeroText>
 
         <HeroText
@@ -73,7 +75,7 @@ export function Hero() {
           stagger={0.012}
           delay={0.1}
         >
-          Crafting immersive digital experiences with React, Three.js and WebGL.
+          {t("hero.description")}
         </HeroText>
 
         <motion.div
@@ -83,7 +85,7 @@ export function Hero() {
           className="mt-12"
         >
           <MagneticButton href="#work">
-            Discover work
+            {t("hero.cta")}
             <span className="inline-block transition-transform duration-base group-hover:translate-x-1">
               →
             </span>
